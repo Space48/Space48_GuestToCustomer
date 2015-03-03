@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Space48_GuestToCustomer>
+            <version>0.1.0</version>
+        </Space48_GuestToCustomer>
+    </modules>
+    <global>
+        <blocks>
+            <space48_guesttocustomer>
+                <class>Space48_GuestToCustomer_Block</class>
+            </space48_guesttocustomer>
+        </blocks>
+        <models>
+            <space48_guesttocustomer>
+                <class>Space48_GuestToCustomer_Model</class>
+            </space48_guesttocustomer>
+        </models>
+        <helpers>
+            <space48_guesttocustomer>
+                <class>Space48_GuestToCustomer_Helper</class>
+            </space48_guesttocustomer>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Space48_GuestToCustomer_Adminhtml before="Mage_Adminhtml">Space48_GuestToCustomer_Adminhtml</Space48_GuestToCustomer_Adminhtml>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <events>
+            <!-- to add a button to sales order view -->
+            <adminhtml_widget_container_html_before>
+                <observers>
+                    <space48_guesttocustomer_add_button>
+                        <class>space48_guesttocustomer/observer_adminhtml_sales_order</class>
+                        <method>addButton</method>
+                    </space48_guesttocustomer_add_button>
+                </observers>
+            </adminhtml_widget_container_html_before>
+        </events>
+    </adminhtml>
+</config>
+
+
